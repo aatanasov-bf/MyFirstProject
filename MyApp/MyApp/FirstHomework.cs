@@ -1,11 +1,13 @@
-﻿//Task 1: Convert and Add Two Numbers
+﻿using MyApp.Homework;
+
+//Task 1: Convert and Add Two Numbers
 string firstNumber, secondNumber;
 
 Console.WriteLine("Task 1: Convert and Add Two Numbers");
 Console.Write("Enter first number: ");
-firstNumber = System.Console.ReadLine();
+firstNumber = Console.ReadLine();
 Console.Write("Enter second number: ");
-secondNumber = System.Console.ReadLine();
+secondNumber = Console.ReadLine();
 int.TryParse(firstNumber, out int firstNumberIntValue);
 int.TryParse(secondNumber, out int secondNumberIntValue);
 Console.WriteLine($"Number are: {firstNumber} and {secondNumber}");
@@ -68,3 +70,4 @@ else
 {
     Console.WriteLine($"Your age is {ageIntValue}");
 }
+
