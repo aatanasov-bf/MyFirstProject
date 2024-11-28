@@ -10,7 +10,7 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Available homeworks: 1, 2, 3\nSelect homework: ");
+            Console.Write("Available homeworks: 1, 2, 3, 4\nSelect homework: ");
             int selection = int.Parse(Console.ReadLine());
             switch (selection)
             {
@@ -19,7 +19,7 @@ namespace MyApp
                         HomeworkLecture2.HomeworkLecture2Tasks();
                         break;
                     }
-                    case 2:
+                case 2:
                     {
                         HomeworkLecture3.CinemaHallTask();
                         HomeworkLecture3.FishingTrip();
@@ -29,7 +29,7 @@ namespace MyApp
                         HomeworkLecture3.PasswordGenerator();
                         break;
                     }
-                    case 3:
+                case 3:
                     {
                         HomeworkLecture4.CommonElements();
                         HomeworkLecture4.MaxSequenceOfEqualElements();
@@ -39,6 +39,11 @@ namespace MyApp
                         HomeworkLecture4.MinerTask();
                         HomeworkLecture4.BasicStackOperations();
                         HomeworkLecture4.BasicQueueOperations();
+                        break;
+                    }
+                case 4:
+                    {
+                        HomeworkLecture5.MethodsDemo();
                         break;
                     }
             }
