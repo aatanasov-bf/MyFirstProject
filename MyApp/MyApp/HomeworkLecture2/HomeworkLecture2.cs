@@ -43,24 +43,26 @@
         Console.WriteLine($"Extracted word is: {sentence.Substring(startIndexIntValue - 1, numberOfLettersIntValue).ToUpper()}");
 
 
-        //Task 4: Validate Age Input
+        //Task 4: Calculate the Area of a Circle 
         string radius;
         const double PI = 3.14;
 
         Console.WriteLine("\nTask 4: Calculate the Area of a Circle");
         Console.Write("Enter the radius of the circle: ");
         radius = Console.ReadLine();
-        double.TryParse(radius, out double radiusDoubleValue);
+        double radiusDoubleValue;
+        double.TryParse(radius, out radiusDoubleValue);
         Console.WriteLine($"The area of the circle is: {PI * radiusDoubleValue * radiusDoubleValue}");
 
 
         //Task 5: Validate Age Input
         string age;
+        int ageIntValue;
 
         Console.WriteLine("\nTask 5: Validate Age Input");
         Console.Write("Enter your age: ");
         age = Console.ReadLine();
-        if (!int.TryParse(age, out int ageIntValue))
+        if (!int.TryParse(age, out ageIntValue))
         {
             Console.WriteLine("Invalid input. Please enter an integer value for your age.");
         }

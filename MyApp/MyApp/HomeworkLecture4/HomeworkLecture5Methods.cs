@@ -118,8 +118,9 @@
 
     public static void parseStringToNumber(string s, out int convertedNumber)
     {
-        if (int.TryParse(s, out int result))
-            convertedNumber = result;
+        int parseResult;
+        if (int.TryParse(s, out parseResult))
+            convertedNumber = parseResult;
         else
             convertedNumber = 0;
     }
