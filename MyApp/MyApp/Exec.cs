@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyApp.OOP.HomeworkLecture7;
 
 namespace MyApp
 {
@@ -10,7 +6,13 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Available homeworks: 1, 2, 3, 4\nSelect homework: ");
+            Console.Write("Available homeworks: \n" +
+                "1. Homework Lecture 2\n" +
+                "2. Homework Lecture 3\n" +
+                "3. Homewework Lecture 4\n" +
+                "4. Homework Lecture 5\n" +
+                "5. Homework Lecture 7\n" +
+                "Select homework: ");
             int selection = int.Parse(Console.ReadLine());
             switch (selection)
             {
@@ -44,6 +46,45 @@ namespace MyApp
                 case 4:
                     {
                         HomeworkLecture5.MethodsDemo();
+                        break;
+                    }
+                case 5:
+                    {
+                        int choice;
+                        do
+                        {
+                            Console.Write("Select task (1-5) 0 to exit: ");
+
+                            choice = int.Parse(Console.ReadLine());
+                            switch (choice)
+                            {
+                                case 1:
+                                    {
+                                        HomeworkLecture7.Task1();
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        HomeworkLecture7.Task2();
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        HomeworkLecture7.Task3();
+                                        break;
+                                    }
+                                case 4:
+                                    {
+                                        HomeworkLecture7.Task4();
+                                        break;
+                                    }
+                                case 5:
+                                    {
+                                        HomeworkLecture7.Task5();
+                                        break;
+                                    }
+                            }
+                        } while (choice != 0);
                         break;
                     }
             }

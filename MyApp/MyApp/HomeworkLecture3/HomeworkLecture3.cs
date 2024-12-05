@@ -242,9 +242,9 @@
                     for (int m = 1; m <= l; m++)
                     {
                         symbol4 = (char)(m + 96);
-                        for (int p  = 1; p <= n; p++)
+                        for (int p = 1; p <= n; p++)
                         {
-                            if (p > symbol1 && p > symbol2 )
+                            if (p > symbol1 && p > symbol2)
                             {
                                 symbol5 = p;
                                 Console.Write($"{symbol1}{symbol2}{symbol3}{symbol4}{symbol5} ");
