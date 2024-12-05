@@ -1,0 +1,7 @@
+Task 5: File Reader with Cleanup
+Write a method ReadFile(string filePath):
+Use try-catch-finally to:
+Open a file.
+Catch any FileNotFoundException or IOException.
+Ensure the file stream is properly closed in the finally block.
+Bonus: Create a mock file and test the program with both valid and invalid file paths.
