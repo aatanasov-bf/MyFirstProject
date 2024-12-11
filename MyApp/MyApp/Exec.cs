@@ -15,6 +15,7 @@ namespace MyApp
                 "4. Homework Lecture 5\n" +
                 "5. Homework Lecture 7\n" +
                 "6. Homework Lecture 8\n" +
+                "7. Homework Lecture 9\n" +
                 "Select homework: ");
             int selection = int.Parse(Console.ReadLine());
             switch (selection)
@@ -135,7 +136,7 @@ namespace MyApp
                         int choice;
                         do
                         {
-                            Console.Write("Select task (1-5) 0 to exit: ");
+                            Console.Write("Select task (1-4) 0 to exit: ");
 
                             choice = int.Parse(Console.ReadLine());
                             switch (choice)
