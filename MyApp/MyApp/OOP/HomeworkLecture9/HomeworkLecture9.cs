@@ -209,10 +209,10 @@ namespace MyApp.OOP.HomeworkLecture9
             }
 
             Console.WriteLine();
-            ((Book)libraryItems[0]).ExtendDueDate(5);
-            ((Book)libraryItems[1]).ExtendDueDate(5);
-            ((Book)libraryItems[2]).ExtendDueDate(8);
-            ((Magazine)libraryItems[5]).ExtendDueDate(10);
+            libraryItems[0].ExtendDueDate(5);
+            libraryItems[1].ExtendDueDate(5);
+            libraryItems[2].ExtendDueDate(8);
+            libraryItems[5].ExtendDueDate(10);
 
             Console.WriteLine("Library inventar status after some date changes:");
             foreach (LibraryItem libraryItem in libraryItems)
