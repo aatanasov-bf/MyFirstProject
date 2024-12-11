@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyApp.OOP.HomeworkLecture8
+﻿namespace MyApp.OOP.HomeworkLecture8
 {
     public class HomeworkLecture8
     {
@@ -45,7 +39,7 @@ namespace MyApp.OOP.HomeworkLecture8
         public static void Task4()
         {
             MathOperations mo = new MathOperations();
-            Console.WriteLine($"Add method with int int: {mo.Add(2,3).ToString()}");
+            Console.WriteLine($"Add method with int int: {mo.Add(2, 3).ToString()}");
             Console.WriteLine($"Add method with double  double double: {mo.Add(2.2, 3.3, 5.5).ToString()}");
             Console.WriteLine($"Add method with decimal decimal decimal: {mo.Add(2.2m, 3.3m, 4.4m).ToString()}");
         }

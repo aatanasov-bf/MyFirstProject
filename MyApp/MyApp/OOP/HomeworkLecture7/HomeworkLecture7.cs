@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks.Sources;
-
-namespace MyApp.OOP.HomeworkLecture7
+﻿namespace MyApp.OOP.HomeworkLecture7
 {
     public class HomeworkLecture7
     {

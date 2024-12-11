@@ -1,5 +1,6 @@
 ﻿using MyApp.OOP.HomeworkLecture7;
 using MyApp.OOP.HomeworkLecture8;
+using MyApp.OOP.HomeworkLecture9;
 
 namespace MyApp
 {
@@ -124,6 +125,42 @@ namespace MyApp
                                         HomeworkLecture8.Task5();
                                         break;
                                     }
+                            }
+                        } while (choice != 0);
+                        break;
+                    }
+
+                case 7:
+                    {
+                        int choice;
+                        do
+                        {
+                            Console.Write("Select task (1-5) 0 to exit: ");
+
+                            choice = int.Parse(Console.ReadLine());
+                            switch (choice)
+                            {
+                                case 1:
+                                    {
+                                        HomeworkLecture9.Task1();
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        HomeworkLecture9.Task2();
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        HomeworkLecture9.Task3();
+                                        break;
+                                    }
+                                case 4:
+                                    {
+                                        HomeworkLecture9.Task4();
+                                        break;
+                                    }
+
                             }
                         } while (choice != 0);
                         break;
