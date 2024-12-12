@@ -111,133 +111,53 @@ namespace MyApp.OOP.HomeworkLecture9
 
         public static void Task4()
         {
-            List<LibraryItem> libraryItems = new List<LibraryItem>
-            {
-                new Book("It","Steven King"),
-                new Book("To kill a mocking bird", "Harper Lee"),
-                new Book("Don Quixote", "Miguel de Cervantes"),
-                new Magazine("National Geographic", 5),
-                new Magazine("The New Yorker", 44),
-                new Magazine("Vogue", 22)
-            };
+
+            Libray libray = new Libray();
+
+            Book book = new Book("It", "Steven King");
+            Book book1 = new Book("To kill a mocking bird", "Harper Lee");
+            Book book2 = new Book("Don Quixote", "Miguel de Cervantes");
+            Magazine magazine = new Magazine("National Geographic", 5);
+            Magazine magazine1 = new Magazine("The New Yorker", 44);
+            Magazine magazine2 = new Magazine("Vogue", 22);
+
+            libray.AddItemToLibrary(book);
+            libray.AddItemToLibrary(book1);
+            libray.AddItemToLibrary(book2);
+            libray.AddItemToLibrary(magazine);
+            libray.AddItemToLibrary(magazine1);
+            libray.AddItemToLibrary(magazine2);
 
             string borrowingPerson = "Atanas Atanasov";
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson, libraryItems);
-                ((Book)libraryItems[0]).Borrow(borrowingPerson, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson, libraryItems);
-                ((Book)libraryItems[1]).Borrow(borrowingPerson, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson, libraryItems);
-                ((Book)libraryItems[2]).Borrow(borrowingPerson, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson, libraryItems);
-                ((Magazine)libraryItems[3]).Borrow(borrowingPerson, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            libray.BorrowItemFromLibrary("It",borrowingPerson, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("To kill a mocking bird", borrowingPerson, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("Don Quixote", borrowingPerson, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("National Geographic", borrowingPerson, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("Vogue", borrowingPerson, DateTime.Parse("12-31-2024"));
 
             string borrowingPerson1 = "Pavel Pavlov";
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson1, libraryItems);
-                ((Magazine)libraryItems[3]).Borrow(borrowingPerson1, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            libray.BorrowItemFromLibrary("It", borrowingPerson1, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("National Geographic", borrowingPerson1, DateTime.Parse("12-31-2024"));
+            libray.BorrowItemFromLibrary("The New Yorker", borrowingPerson1, DateTime.Parse("12-31-2024"));
 
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson1, libraryItems);
-                ((Magazine)libraryItems[4]).Borrow(borrowingPerson1, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            Console.WriteLine("Library inventar status after some borrowings:");
-            foreach (LibraryItem libraryItem in libraryItems)
-            {
-                libraryItem.CheckStatus();
-            }
+            libray.DisplayLibrayItems();
 
             Console.WriteLine();
-            ((Book)libraryItems[0]).Return();
+            libray.ReturnItemToLibrary("It");
+            libray.BorrowItemFromLibrary("Vogue", borrowingPerson, DateTime.Parse("12-31-2024"));
 
-            try
-            {
-                IsTheBorrowingLimitReached(borrowingPerson, libraryItems);
-                ((Magazine)libraryItems[5]).Borrow(borrowingPerson, DateTime.Parse("12-31-2024"));
-            }
-            catch (BorrowingLimiteException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            Console.WriteLine("Library inventar status after some returns and borrowings:");
-            foreach (LibraryItem libraryItem in libraryItems)
-            {
-                libraryItem.CheckStatus();
-            }
+            libray.DisplayLibrayItems();
 
             Console.WriteLine();
-            libraryItems[0].ExtendDueDate(5);
-            libraryItems[1].ExtendDueDate(5);
-            libraryItems[2].ExtendDueDate(8);
-            libraryItems[5].ExtendDueDate(10);
+            libray.ExtendItemDueDate("To kill a mocking bird", 29);
+            libray.ExtendItemDueDate("Don Quixote", 8);
+            libray.ExtendItemDueDate("Vogue", 10);
 
-            Console.WriteLine("Library inventar status after some date changes:");
-            foreach (LibraryItem libraryItem in libraryItems)
-            {
-                libraryItem.CheckStatus();
-            }
+            libray.DisplayLibrayItems();
 
+            libray.BorrowItemFromLibrary("It", borrowingPerson1, DateTime.Parse("11-30-2024"));
+
+            libray.DisplayLibrayItems();
         }
-
-        private static void IsTheBorrowingLimitReached(string borrower, List<LibraryItem> libraryItems)
-        {
-            int borrowingLimit = 0;
-            foreach (LibraryItem libraryItem in libraryItems)
-            {
-
-                if (libraryItem.Borrower != null && libraryItem.Borrower.Replace(" ", "").ToLower().Equals(borrower.Replace(" ", "").ToLower()))
-                    borrowingLimit++;
-                if (borrowingLimit >= 3)
-                    throw new BorrowingLimiteException("Borrowng limit was reached! No more borrowings allowed\n");
-            }
-        }
-    }
-
-    public class BorrowingLimiteException : Exception
-    {
-        public BorrowingLimiteException(string message) : base(message) { }
     }
 }

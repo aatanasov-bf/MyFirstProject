@@ -1,7 +1,7 @@
 ﻿
 namespace MyApp.OOP.HomeworkLecture9.AdvancedLibraryManagementSystem
 {
-    public class Book : LibraryItem, IBorrowable
+    public class Book : LibraryItem
     {
         public string Author { get; set; }
 
@@ -10,20 +10,14 @@ namespace MyApp.OOP.HomeworkLecture9.AdvancedLibraryManagementSystem
             Author = author;
         }
 
-        public void Borrow(string borrower, DateTime dueDate)
+        protected override void OnBorrowedMessage()
         {
-            Borrower = borrower;
-            DueDate = dueDate;
-            IsBorrowed = true;
-            Console.WriteLine($"Book '{Title}' by {Author} borrowed by {Borrower}, due on {DueDate.Value.ToString("dd/MM/yyyy")}\n");
+            Console.WriteLine($"Book '{Title}' by {Author} borrowed by {Borrower}, due on {DueDate.ToString("dd/MM/yyyy")}\n");
         }
 
-        public void Return()
+        protected override void OnReturnedMessage()
         {
             Console.WriteLine($"{Borrower} returns book '{Title}' by {Author}\n");
-            IsBorrowed = false;
-            Borrower = "";
-            DueDate = null;
         }
     }
 }

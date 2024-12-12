@@ -1,7 +1,7 @@
 ﻿
 namespace MyApp.OOP.HomeworkLecture9.AdvancedLibraryManagementSystem
 {
-    public class Magazine : LibraryItem, IBorrowable
+    public class Magazine : LibraryItem
     {
         public int IssueNumber { get; set; }
 
@@ -10,20 +10,14 @@ namespace MyApp.OOP.HomeworkLecture9.AdvancedLibraryManagementSystem
             IssueNumber = issueNumber;
         }
 
-        public void Borrow(string borrower, DateTime dueDate)
+        protected override void OnBorrowedMessage()
         {
-            IsBorrowed = true;
-            Borrower = borrower;
-            DueDate = dueDate;
-            Console.WriteLine($"Magazine '{Title}' (Issue Number) {IssueNumber} borrowed by {Borrower}, due on {DueDate.Value.ToString("dd/MM/yyyy")}\n");
+            Console.WriteLine($"Magazine '{Title}' (Issue Number) {IssueNumber} borrowed by {Borrower}, due on {DueDate.ToString("dd/MM/yyyy")}\n");
         }
 
-        public void Return()
+        protected override void OnReturnedMessage()
         {
             Console.WriteLine($"{Borrower} returns magazine '{Title}' (Issue Number) {IssueNumber}\n");
-            IsBorrowed = false;
-            Borrower = "";
-            DueDate = null;
         }
     }
 }
